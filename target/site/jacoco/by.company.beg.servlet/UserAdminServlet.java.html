@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserAdminServlet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ServletSocialNetwork</a> &gt; <a href="index.source.html" class="el_package">by.company.beg.servlet</a> &gt; <span class="el_source">UserAdminServlet.java</span></div><h1>UserAdminServlet.java</h1><pre class="source lang-java linenums">package by.company.beg.servlet;
+
+import by.company.beg.entity.User;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+@WebServlet(urlPatterns = &quot;/user&quot;, name = &quot;UserAdminServlet&quot;)
+<span class="nc" id="L14">public class UserAdminServlet extends HttpServlet {</span>
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<span class="nc" id="L18">        String email = req.getParameter(&quot;email&quot;);</span>
+
+<span class="nc" id="L20">        List&lt;User&gt; userList = (List&lt;User&gt;) getServletContext().getAttribute(&quot;userList&quot;);</span>
+<span class="nc" id="L21">        User user = null;</span>
+
+
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        for (User currentUser : userList) {</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">            if (currentUser.getEmail().equals(email)) {</span>
+<span class="nc" id="L26">                user = currentUser;</span>
+            }
+<span class="nc" id="L28">        }</span>
+
+<span class="nc" id="L30">        String sex = &quot;Мужчина&quot;;</span>
+
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (!user.isSex()) {</span>
+<span class="nc" id="L33">            sex = &quot;Женщина&quot;;</span>
+        }
+
+<span class="nc" id="L36">        req.setAttribute(&quot;firstName&quot;, user.getFirstName());</span>
+<span class="nc" id="L37">        req.setAttribute(&quot;lastName&quot;, user.getLastName());</span>
+<span class="nc" id="L38">        req.setAttribute(&quot;age&quot;, user.getAge());</span>
+<span class="nc" id="L39">        req.setAttribute(&quot;sex&quot;, sex);</span>
+<span class="nc" id="L40">        req.setAttribute(&quot;email&quot;, user.getEmail());</span>
+<span class="nc" id="L41">        req.setAttribute(&quot;password&quot;, user.getPassword());</span>
+
+<span class="nc" id="L43">        req.getRequestDispatcher(&quot;/user.jsp&quot;).forward(req, resp);</span>
+
+<span class="nc" id="L45">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

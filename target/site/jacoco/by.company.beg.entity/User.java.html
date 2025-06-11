@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ServletSocialNetwork</a> &gt; <a href="index.source.html" class="el_package">by.company.beg.entity</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package by.company.beg.entity;
+
+import java.io.Serializable;
+import java.util.Objects;
+
+public class User implements Serializable {
+    private String firstName;
+    private String lastName;
+    private int age;
+    private String email;
+    private String password;
+    private boolean sex;
+    private boolean isAdmin;
+
+<span class="nc" id="L15">    public User() {</span>
+<span class="nc" id="L16">    }</span>
+
+<span class="fc" id="L18">    public User(String firstName, String lastName, int age, String email, String password, boolean sex, boolean isAdmin) {</span>
+<span class="fc" id="L19">        this.firstName = firstName;</span>
+<span class="fc" id="L20">        this.lastName = lastName;</span>
+<span class="fc" id="L21">        this.age = age;</span>
+<span class="fc" id="L22">        this.email = email;</span>
+<span class="fc" id="L23">        this.password = password;</span>
+<span class="fc" id="L24">        this.sex = sex;</span>
+<span class="fc" id="L25">        this.isAdmin = isAdmin;</span>
+<span class="fc" id="L26">    }</span>
+
+<span class="fc" id="L28">    public User(String firstName, String lastName, int age, String email, String password, boolean sex) {</span>
+<span class="fc" id="L29">        this.firstName = firstName;</span>
+<span class="fc" id="L30">        this.lastName = lastName;</span>
+<span class="fc" id="L31">        this.age = age;</span>
+<span class="fc" id="L32">        this.email = email;</span>
+<span class="fc" id="L33">        this.password = password;</span>
+<span class="fc" id="L34">        this.sex = sex;</span>
+<span class="fc" id="L35">    }</span>
+
+<span class="fc" id="L37">    public User(String email, String password) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (email == null) {</span>
+<span class="fc" id="L39">            throw new NullPointerException(&quot;Email cannot be null&quot;);</span>
+        }
+<span class="fc" id="L41">        this.email = email;</span>
+<span class="fc" id="L42">        this.password = password;</span>
+<span class="fc" id="L43">        }</span>
+
+
+    public String getFirstName() {
+<span class="fc" id="L47">        return firstName;</span>
+    }
+
+    public void setFirstName(String firstName) {
+<span class="fc" id="L51">        this.firstName = firstName;</span>
+<span class="fc" id="L52">    }</span>
+
+    public String getLastName() {
+<span class="fc" id="L55">        return lastName;</span>
+    }
+
+    public void setLastName(String lastName) {
+<span class="fc" id="L59">        this.lastName = lastName;</span>
+<span class="fc" id="L60">    }</span>
+
+    public int getAge() {
+<span class="fc" id="L63">        return age;</span>
+    }
+
+    public void setAge(int age) {
+<span class="fc" id="L67">        this.age = age;</span>
+<span class="fc" id="L68">    }</span>
+
+    public String getEmail() {
+<span class="fc" id="L71">        return email;</span>
+    }
+
+    public void setEmail(String email) {
+<span class="fc" id="L75">        this.email = email;</span>
+<span class="fc" id="L76">    }</span>
+
+    public String getPassword() {
+<span class="fc" id="L79">        return password;</span>
+    }
+
+    public void setPassword(String password) {
+<span class="fc" id="L83">        this.password = password;</span>
+<span class="fc" id="L84">    }</span>
+
+    public boolean isAdmin() {
+<span class="fc" id="L87">        return isAdmin;</span>
+    }
+
+    public void setAdmin(boolean admin) {
+<span class="fc" id="L91">        isAdmin = admin;</span>
+<span class="fc" id="L92">    }</span>
+
+    public boolean isSex() {
+<span class="fc" id="L95">        return sex;</span>
+    }
+
+    public void setSex(boolean sex) {
+<span class="fc" id="L99">        this.sex = sex;</span>
+<span class="fc" id="L100">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L104" title="All 2 branches covered.">        if (this == o) return true;</span>
+<span class="fc bfc" id="L105" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L106">        User user = (User) o;</span>
+<span class="fc bfc" id="L107" title="All 4 branches covered.">        return email.equals(user.email) &amp;&amp; password.equals(user.password);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L112">        return Objects.hash(email, password);</span>
+    }
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

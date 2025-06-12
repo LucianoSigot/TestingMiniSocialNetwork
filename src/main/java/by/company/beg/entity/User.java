@@ -38,9 +38,12 @@ public class User implements Serializable {
         if (email == null) {
             throw new NullPointerException("Email cannot be null");
         }
+        if (password == null) {
+            throw new NullPointerException("Password cannot be null");
+        }
         this.email = email;
         this.password = password;
-        }
+    }
 
 
     public String getFirstName() {

@@ -26,4 +26,7 @@ public class EncodingFilter extends HttpFilter {
         req.setCharacterEncoding(encoding);
         chain.doFilter(req, res);
     }
+    public String getEncoding(){
+        return encoding;
+    }
 }
